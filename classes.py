@@ -29,6 +29,9 @@ class Account:
 
         Account.Account_Database.update({self.user_name:self.__dict__})
 
+    def __repr__(self) -> str:
+        return f"{self.f_name},{self.l_name[0]}: Account Number:{self.account_num} Account Balance:{self.account_bal}"
+
     def Deposit(self, amount):
         self.account_bal = self.account_bal + amount
         print(f"Your Acccount Balance is {self.account_bal}")
