@@ -47,6 +47,10 @@ class Account:
 
     @classmethod
     def Transfer(cls,account1,account2,amount):
-        account1.Withdraw(amount)
-        account2.account_bal = account2.account_bal + amount
+        while amount > account1.account_bal:
+            print(f"You Tried To Withdraw {amount}, Which Exceeds Your Account Balance Of {account1.account_bal}. Please Choose A New Amount.")
+            amount = float(input("Enter New Amount: "))
 
+        account1.account_bal = account1.account_bal - amount   
+        account2.account_bal = account2.account_bal + amount
+        return amount
